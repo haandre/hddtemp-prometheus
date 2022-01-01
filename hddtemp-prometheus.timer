@@ -1,0 +1,10 @@
+
+[Unit]
+Description=Write current temperature from sata disks to file for prometheus node textfile to read
+
+[Timer]
+OnCalendar=minutely
+Persistent=true
+
+[Install]
+WantedBy=timers.target
