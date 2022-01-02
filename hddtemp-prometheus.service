@@ -1,5 +1,5 @@
 [Unit]
-Description=Write current temperature from sata disks to file for prometheus node textfile to read
+Description=Write current temperature from sata and nvme disks to file for prometheus node textfile to read
 
 [Service]
 EnvironmentFile=-/etc/conf.d/hddtemp-prometheus
