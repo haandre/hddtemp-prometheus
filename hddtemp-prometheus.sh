@@ -34,7 +34,7 @@ LIST=$(ls /dev/nvme[0-9]n1)
 for DISK in $LIST
 do
     SERIAL=$(udevadm info --query=property --name=$DISK | grep ID_SERIAL_SHORT | cut -d "=" -f 2)
-    TEMP=$(smartctl --all /dev/nvme1n1 | grep Temperature: | grep -Po '\d{1,3}')
+    TEMP=$(smartctl --all $DISK | grep Temperature: | grep -Po '\d{1,3}')
     TMP="node_hwmon_temp_celsius{chip=\"$DISK\",sensor=\"temp1\",serial=\"$SERIAL\"} $TEMP\n"
     OUTPUT="$OUTPUT$TMP"
 done
